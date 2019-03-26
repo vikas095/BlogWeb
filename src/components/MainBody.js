@@ -2,14 +2,14 @@ import React , {Component} from 'react'
 import './design.css'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import { link } from 'fs';
-export default class MainBody extends Component{
+ class MainBody extends Component{
     render(){
         return(
             <div id="bgImg">
                 <Router>
                     <Links />
-                    <Route path="/" Component={LogIn} />
-                    <Route path="/SignUp" Component={SignUp} />
+                    <Route path="/" component={LogIn} />
+                    <Route path="/SignUp" component={SignUp} />
                 </Router>
             </div>
         )
@@ -48,7 +48,7 @@ function SignUp(){
                 
                 <input type="text" className="fields" placeholder="Enter name" name="name" required /><br/>
                 
-                <input type="text" claclassNamess="fields" placeholder="Enter Email" name="email" required /><br/>
+                <input type="text" className="fields" placeholder="Enter Email" name="email" required /><br/>
                 
                 <select className="fieldsForSelect" name="country">
                     <option value="" selected disabled hidden>Choose Role</option>
@@ -70,3 +70,5 @@ function SignUp(){
             </center>
     )
 }
+
+export default MainBody;
