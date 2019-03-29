@@ -1,23 +1,30 @@
 import React, { Component } from 'react';
-import './App.css';
 import Header from './components/Header'
-import MainBody from './components/MainBody'
 import Footer from './components/Footer'
+import Home from './components/Home'
+import LogIn from './components/LogIn'
+import SignUp from './components/SignUp'
+import NotPageFound from './components/NotPageFound'
+import Review from './components/Review'
+
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header>
+      <BrowserRouter >
+        <div >
           <Header />
-        </header>
-        <div>
-          <MainBody />
-        </div>
-        <footer>
+          <Switch className="bckgrdImg">
+            <Route exact path="/" component={LogIn}/>
+            <Route exact path="/signup" component={SignUp}/>
+            <Route exact path="/home" component={Home}/>
+            <Route exact path="/home/review" component={Review}/>
+            <Route component={NotPageFound} />
+          </Switch>
           <Footer />
-        </footer>
-      </div>
+        </div>
+      </BrowserRouter>
     );
   }
 }

@@ -3,9 +3,15 @@ import './Footer.css'
 export default class Footer extends Component{
     render(){
         return(
-            <div className="Footer">
-                <h1>Footer Content</h1>
-            </div>
+            <footer className="Footer">
+                <center>
+                    <h3>CONTACT</h3>
+                    <a href="#">Facebook </a>
+                    <a href="#">Email </a>
+                    <a href="#">Instagram </a>
+                    <a href="#">Twitter </a>
+                </center>
+            </footer>
         )
     }
 }

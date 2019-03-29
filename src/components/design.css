@@ -1,18 +1,9 @@
   /* Add padding to containers */
   .container {
-    padding: 16px;
-    background-color: lightgray;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
   }
-  .btn{
-    padding: 30vh;
-  }
-#bgImg{
-  background-image: url('./1.jpg');
-  background-size: cover;
-  width: 100%;
-  height: calc(100vh - 170px);
 
-}
   /* width input fields */
   .fields{
     width: 50%;
@@ -23,7 +14,7 @@
   }
     /* width select fields*/
   .fieldsForSelect{
-    width: 52%;
+    width: 50%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
