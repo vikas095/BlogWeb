@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom';
 const NotPageFound = ()=>{
     return(
         <div>
-            <p>404</p>
+            <p>404 Page Not Found</p>
         </div>
     )
 }

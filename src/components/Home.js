@@ -2,6 +2,12 @@ import React , {Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import './Home.css'
  class Home extends Component{
+    review(){
+        console.log("hello")
+        return(
+            <h1>hello</h1>
+        )
+    }
     render(){
         return(
             <div>
@@ -16,7 +22,8 @@ import './Home.css'
                             <p>Blog write here.......</p>
                             <button>Like</button>
                             <button>Unlike</button>
-                            <NavLink to="/home/review" style={{color:'white'}}><button style={{float:'right'}}>Review</button></NavLink>
+                            {/* <NavLink to="/home/review" style={{color:'white'}}><button style={{float:'right'}}>Review</button></NavLink> */}
+                            <button style={{float:'right'}} onClick={this.review.bind(this)}>Review</button>
                         </div>
                         <div className="card">
                             <h2>Blog 2</h2>

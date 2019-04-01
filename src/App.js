@@ -6,6 +6,7 @@ import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import NotPageFound from './components/NotPageFound'
 import Review from './components/Review'
+import RegisteredSuccessful from './components/RegisteredSuccessful'
 
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp}/>
             <Route exact path="/home" component={Home}/>
             <Route exact path="/home/review" component={Review}/>
+            <Route exact path="/signup/registered" component={RegisteredSuccessful}/>
             <Route component={NotPageFound} />
           </Switch>
           <Footer />

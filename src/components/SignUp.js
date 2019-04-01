@@ -1,19 +1,67 @@
 import React , {Component} from 'react'
 import './design.css'
 import {NavLink} from 'react-router-dom'
+import axios from 'axios'
+import RegisteredSuccessful from './RegisteredSuccessful'
 export default class SignUp extends Component{
+    constructor(){
+        super()
+        this.state={
+            name:'',
+            email:'',
+            pwd:'',
+            repwd:''
+        }
+    }
+    dataChange(e){
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    postData(e){
+
+        let name = this.state.name
+        let email = this.state.email
+        let pwd = this.state.pwd
+        let repwd = this.state.repwd
+
+        this.setState({
+            loading : true
+        })
+
+        const data = {
+            name,
+            email,
+            pwd,
+            repwd
+        }
+        axios.post('http://localhost:3000/people',data)
+        .then(res => {
+            console.log(res)
+            this.setState({
+                loading:false,
+                message:res.data
+            })
+        })
+        .catch(err=>{
+            console.log(err)
+            this.setState({
+                loading:false
+            })
+        })
+    }
     render(){
         return(
         <div>
             <center className="container">
-                <form>
+                <form onSubmit={this.postData.bind(this)}>
                     <div className="container">
                     <h1>Registration form </h1>
                     <p>Please fill all field to create an account.</p>
                 
-                    <input type="text" className="fields" placeholder="Enter name" name="name" required /><br/>
+                    <input type="text" className="fields" placeholder="Enter name" value={this.state.name} name="name" required onChange={this.dataChange.bind(this)}/><br/>
                 
-                    <input type="text" className="fields" placeholder="Enter Email" name="email" required /><br/>
+                    <input type="text" className="fields" placeholder="Enter Email" value={this.state.email} name="email" required onChange={this.dataChange.bind(this)}/><br/>
                 
                     <select className="fieldsForSelect" name="country">
                         <option value="" selected disabled hidden>Choose Role</option>
@@ -22,13 +70,16 @@ export default class SignUp extends Component{
                         <option value="default">Default</option>
                     </select><br/>
 
-                    <input type="password" className="fields" placeholder="Enter Password" name="psw" required /><br/>
+                    <input type="password" className="fields" placeholder="Enter Password" value={this.state.pwd} name="pwd" required onChange={this.dataChange.bind(this)}/><br/>
 
-                    <input type="password" className="fields" placeholder="Repeat Password" name="psw-repeat" required /><br/>
+                    <input type="password" className="fields" placeholder="Repeat Password" value={this.state.repwd} name="repwd" required onChange={this.dataChange.bind(this)}/><br/>
                     
                     <center>
-                        <button type="submit" className="registerbtn">Register</button>
-                        <button type="reset" className="registerbtn">Reset</button>
+                        <input type="submit" className="registerbtn" name="Register" onClick={<RegisteredSuccessful />}/>
+                        {/* <NavLink to="/"><input type="submit" className="registerbtn" name="Register" /></NavLink> */}
+                        {/* <NavLink to="/"><button className="registerbtn" onSubmit={this.postData.bind(this)}>Submit</button></NavLink> */}
+                        {/* <button className="registerbtn" onSubmit={this.postData.bind(this)}><NavLink to="/">Submit</NavLink></button> */}
+                        <input type="reset" className="registerbtn" name="Reset" />
                         <p>Already have an account? <NavLink to="/" style={{color:'white'}}>Sign in</NavLink>.</p>
                     </center>
                     </div>
