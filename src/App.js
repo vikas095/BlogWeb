@@ -8,7 +8,7 @@ import NotPageFound from './components/NotPageFound'
 import Review from './components/Review'
 import RegisteredSuccessful from './components/RegisteredSuccessful'
 
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter, Route,  Switch } from 'react-router-dom'
 
 class App extends Component {
   render() {

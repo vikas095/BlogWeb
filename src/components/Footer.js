@@ -6,10 +6,10 @@ export default class Footer extends Component{
             <footer className="Footer">
                 <center>
                     <h3>CONTACT</h3>
-                    <a href="#">Facebook </a>
-                    <a href="#">Email </a>
-                    <a href="#">Instagram </a>
-                    <a href="#">Twitter </a>
+                    <a href="www.facebook.com">Facebook </a>
+                    <a href="www.email.com">Email </a>
+                    <a href="www.instagram.com">Instagram </a>
+                    <a href="www.twitter.com">Twitter </a>
                 </center>
             </footer>
         )

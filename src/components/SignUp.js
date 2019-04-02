@@ -2,13 +2,13 @@ import React , {Component} from 'react'
 import './design.css'
 import {NavLink} from 'react-router-dom'
 import axios from 'axios'
-import RegisteredSuccessful from './RegisteredSuccessful'
 export default class SignUp extends Component{
     constructor(){
         super()
         this.state={
             name:'',
             email:'',
+            role:'',
             pwd:'',
             repwd:''
         }
@@ -18,38 +18,29 @@ export default class SignUp extends Component{
             [e.target.name]:e.target.value
         })
     }
-    postData(e){
+    postData(){
 
         let name = this.state.name
         let email = this.state.email
+        let role = this.state.role
         let pwd = this.state.pwd
         let repwd = this.state.repwd
-
-        this.setState({
-            loading : true
-        })
 
         const data = {
             name,
             email,
+            role,
             pwd,
             repwd
         }
         axios.post('http://localhost:3000/people',data)
         .then(res => {
             console.log(res)
-            this.setState({
-                loading:false,
-                message:res.data
-            })
+            alert("form submited")
         })
-        .catch(err=>{
-            console.log(err)
-            this.setState({
-                loading:false
-            })
-        })
+
     }
+
     render(){
         return(
         <div>
@@ -64,7 +55,7 @@ export default class SignUp extends Component{
                     <input type="text" className="fields" placeholder="Enter Email" value={this.state.email} name="email" required onChange={this.dataChange.bind(this)}/><br/>
                 
                     <select className="fieldsForSelect" name="country">
-                        <option value="" selected disabled hidden>Choose Role</option>
+                        <option value="" hidden>Choose Role</option>
                         <option value="admin">Admin</option>
                         <option value="author">Author</option>
                         <option value="default">Default</option>
@@ -75,10 +66,7 @@ export default class SignUp extends Component{
                     <input type="password" className="fields" placeholder="Repeat Password" value={this.state.repwd} name="repwd" required onChange={this.dataChange.bind(this)}/><br/>
                     
                     <center>
-                        <input type="submit" className="registerbtn" name="Register" onClick={<RegisteredSuccessful />}/>
-                        {/* <NavLink to="/"><input type="submit" className="registerbtn" name="Register" /></NavLink> */}
-                        {/* <NavLink to="/"><button className="registerbtn" onSubmit={this.postData.bind(this)}>Submit</button></NavLink> */}
-                        {/* <button className="registerbtn" onSubmit={this.postData.bind(this)}><NavLink to="/">Submit</NavLink></button> */}
+                        <button className="registerbtn" onSubmit={this.postData.bind(this)} >Submit</button>
                         <input type="reset" className="registerbtn" name="Reset" />
                         <p>Already have an account? <NavLink to="/" style={{color:'white'}}>Sign in</NavLink>.</p>
                     </center>

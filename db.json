@@ -3,9 +3,33 @@
     {
       "name": "vikas",
       "email": "vikas@gmail.com",
-      "pwd": "",
-      "repwd": "",
+      "pwd": "v",
+      "repwd": "v",
       "id": 1
+    },
+    {
+      "name": "neha",
+      "email": "Neha@gmail.com",
+      "role": "",
+      "pwd": "adf",
+      "repwd": "adf",
+      "id": 2
+    },
+    {
+      "name": "deepak",
+      "email": "deepak@gmail.com",
+      "role": "",
+      "pwd": "adsf",
+      "repwd": "adf",
+      "id": 3
+    },
+    {
+      "name": "chakshu",
+      "email": "chakshu@gmail.com",
+      "role": "",
+      "pwd": "dafs",
+      "repwd": "adf",
+      "id": 4
     }
   ]
 }
