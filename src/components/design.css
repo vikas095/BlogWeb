@@ -46,4 +46,7 @@
   .signin {
     background-color: #f1f1f1;
     text-align: center;
-  } 
+  }
+  .errorMsg{
+    color:rgb(1, 255, 242)
+  }

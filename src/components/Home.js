@@ -1,6 +1,7 @@
 import React , {Component} from 'react'
 import {NavLink} from 'react-router-dom'
 import './Home.css'
+
  class Home extends Component{
     review(){
         console.log("hello")
